@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self'; style-src 'self' 'unsafe-inline'; script-src 'self';" />
+  <title>ImageCompressor</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header>
+    <h1>ImageCompressor</h1>
+    <p class="sub">Drop images. They get compressed to WebP.</p>
+  </header>
+
+  <section id="drop" class="drop">
+    <div class="drop-inner">
+      <div class="drop-icon">+</div>
+      <div class="drop-text">Drag images or folders here</div>
+      <div class="drop-or">or</div>
+      <button id="pickBtn" class="primary">Choose files</button>
+    </div>
+  </section>
+
+  <section class="controls">
+    <div class="control">
+      <label for="quality">Quality <span id="qVal">85</span></label>
+      <input id="quality" type="range" min="60" max="95" value="85" step="1" />
+      <div class="hint">
+        <span>smaller</span><span>balanced</span><span>sharper</span>
+      </div>
+    </div>
+    <div class="control">
+      <label class="check">
+        <input id="replaceOriginal" type="checkbox" checked />
+        Move originals to recycle bin after converting
+      </label>
+    </div>
+  </section>
+
+  <section class="controls output-section">
+    <div class="control output-control">
+      <div class="output-header">
+        <label>Output folder</label>
+        <button id="pickOutputBtn" class="ghost" type="button">Choose folder</button>
+      </div>
+      <div class="radio-row">
+        <label class="check">
+          <input type="radio" name="outputMode" value="source" checked />
+          Same as source
+        </label>
+        <label class="check">
+          <input type="radio" name="outputMode" value="custom" />
+          Custom folder
+        </label>
+      </div>
+      <div id="outputDirRow" class="output-dir-row" hidden>
+        <div id="outputDirPath" class="output-dir-path" title="">Not set</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="results">
+    <div class="results-head">
+      <span id="summary">Ready.</span>
+      <button id="clearBtn" class="ghost" hidden>Clear</button>
+    </div>
+    <ul id="list"></ul>
+  </section>
+
+  <div id="dropOverlay" class="drop-overlay" hidden>
+    <div class="drop-overlay-inner">Drop to compress</div>
+  </div>
+
+  <script src="renderer.js"></script>
+</body>
+</html>
