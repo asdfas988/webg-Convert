@@ -2,6 +2,8 @@
 
 Website: [woaimaihao.com](https://woaimaihao.com)
 
+Description: Gpt Claude代充，社媒账号出售
+
 ImageCompressor is a local Windows desktop tool for compressing images and converting them to WebP. It supports drag-and-drop input and uses Sharp for image processing.
 
 ## Download
